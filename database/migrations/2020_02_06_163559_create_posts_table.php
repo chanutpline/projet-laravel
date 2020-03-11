@@ -15,11 +15,25 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+            $table->date('post_date');
+            $table->string('post_content');
+            $table->string('post_title');
+            $table->string('post_status');
+            $table->string('post_name');
+            $table->string('post_type');
+            $table->string('post_category');
+
+            $table->foreign('user_id')
+                    ->references('id')
+                    ->on('users')
+                    ->onDelete('cascade');
         });
     }
 
     /**
+     *    $table->bigIncrements('id');
      * Reverse the migrations.
      *
      * @return void

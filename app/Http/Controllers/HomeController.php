@@ -6,11 +6,12 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    //
-
     function index()
     {
-        return view('welcome');
+$posts = \App\Post::all();
+return view('welcome',array('articles'=>$posts));
+    // $​posts​ ​=​ \App\​Post::​all​(); ​//get all posts
+    // return view('welcome',array('post'=>$posts));
     }
 
 
