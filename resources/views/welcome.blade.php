@@ -4,12 +4,9 @@
 <h1>Home</h1>
 
 <ul>
-    @foreach ($articles as $post)
-<li><a>{{ $post->post_title}}</a></li>
+    @foreach ($last as $post)
+<li><a href={{ url('/articles/'.$post->post_name) }} >{{ $post->post_title}}</a></li>
     @endforeach
 </ul>
-
-
-
 
 @endsection

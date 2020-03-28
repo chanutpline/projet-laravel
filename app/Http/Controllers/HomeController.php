@@ -6,17 +6,20 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    function index()
-    {
-$posts = \App\Post::all();
-return view('welcome',array('articles'=>$posts));
-    // $​posts​ ​=​ \App\​Post::​all​(); ​//get all posts
-    // return view('welcome',array('post'=>$posts));
+    function index() {
+        $last_posts = \App\Post::orderBy('post_date','desc')->take(3)->get();
+        return view('welcome',array('last'=>$last_posts));
     }
 
-
-    function contact()
-    {
+    function contact() {
         return view('contact');
+    }
+
+    function articles(){
+        $posts = \App\Post::all();
+        return view('articles',array('articles'=>$posts));
+    // $​posts​ ​=​ \App\​Post::​all​(); ​//get all posts
+    // return view('articles',array('post'=>$posts));
+
     }
 }
