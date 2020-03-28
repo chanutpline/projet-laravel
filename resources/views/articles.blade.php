@@ -7,7 +7,7 @@
 
 <ul>
     @foreach ($articles as $post)
-<li><a>{{ $post->post_title}}</a></li>
+<li><a href={{ url('/articles/'.$post->post_name) }}>{{ $post->post_title}}</a></li>
     @endforeach
 </ul>
 @endsection

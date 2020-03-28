@@ -11,10 +11,6 @@ class HomeController extends Controller
         return view('welcome',array('last'=>$last_posts));
     }
 
-    function contact() {
-        return view('contact');
-    }
-
     function articles(){
         $posts = \App\Post::all();
         return view('articles',array('articles'=>$posts));

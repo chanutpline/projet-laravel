@@ -18,7 +18,14 @@
 
 Route::get('/','HomeController@index');
 
-Route::get('/contact','HomeController@contact');
+/**
+ * Contact Form Routes
+ */
+Route::prefix('/contact')->group(function() {
+    Route::get('/','ContactController@show');
+    Route::post('/','ContactController@create')->name('post-contact');
+});
+
 
 Route::get('/articles','HomeController@articles');
 
