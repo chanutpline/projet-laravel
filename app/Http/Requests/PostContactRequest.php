@@ -16,7 +16,7 @@ class PostContactRequest extends FormRequest
         return [
             'nom' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'message' => ['required', 'string', 'min:8', 'max:2048'],
+            'message' => ['required', 'string', 'max:2048'],
         ];
     }
 }

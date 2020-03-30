@@ -4,15 +4,7 @@
 <h1>Contacts</h1>
 
 Pour nous contacter, veuillez remplir le formulaire ci-dessous :
-@if($errors)
-<ul>
-    @foreach ($errors->all() as $error)
-    <li style="color:red">
-        {{ $error }}
-    </li>
-    @endforeach
-</ul>
-@endif
+
 <form action="{{ route('post-contact') }}" method="post">
     @csrf
     <table>

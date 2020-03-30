@@ -11,11 +11,6 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});
-*/
-
 Route::get('/','HomeController@index');
 
 /**
@@ -25,7 +20,6 @@ Route::prefix('/contact')->group(function() {
     Route::get('/','ContactController@show');
     Route::post('/','ContactController@create')->name('post-contact');
 });
-
 
 Route::get('/articles','HomeController@articles');
 

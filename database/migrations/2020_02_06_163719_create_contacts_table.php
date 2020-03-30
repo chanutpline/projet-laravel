@@ -17,7 +17,7 @@ class CreateContactsTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->string('contact_name');
-            $table->string('contact_email')->unique();
+            $table->string('contact_email');
             $table->string('contact_message');
             $table->timestamp('contact_date');
         });
