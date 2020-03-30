@@ -25,4 +25,6 @@ Route::get('/articles','HomeController@articles');
 
 Route::get('/articles/{post_name}','PostController@show');
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 
