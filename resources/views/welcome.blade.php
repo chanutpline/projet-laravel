@@ -12,7 +12,8 @@
 @endsection
 
 
-@foreach($posts as $post)
+<!--  -->
+@foreach($last as $post)
 
      <h4 class="media-heading">{{$post->user->name}}</h4>
      <small>{{$post->created_at}}</small>
