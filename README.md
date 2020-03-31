@@ -43,7 +43,7 @@ _En cas de validation du formulaire avec des données invalides le formulaire r�
 
 Test :
 _Remplir le formulaire avec des données invalides ou en laissant des champs vides
-_Remplir le formulaire avec des données valides et aller vérifier leur présence dans la base de données
+_Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
 
 ## Fonctionnalités supplémentaires
 ==================================
