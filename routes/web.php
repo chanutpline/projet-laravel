@@ -17,7 +17,9 @@ Route::get('/','HomeController@index');
  * Contact Form Routes
  */
 Route::prefix('/contact')->group(function() {
+    //appelle la méthode show() quand l'accès à l'url /contacts se fait avec la méthode get
     Route::get('/','ContactController@show');
+    //appelle la méthode create() quand l'accèse à l'url /contacts se fait avec la méthode post
     Route::post('/','ContactController@create')->name('post-contact');
 });
 

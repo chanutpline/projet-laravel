@@ -13,8 +13,9 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
+        //crée la table contacts
         Schema::create('contacts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');//clé primaire de la table
             $table->timestamps();
             $table->string('contact_name');
             $table->string('contact_email');

@@ -14,8 +14,11 @@ class PostContactRequest extends FormRequest
     public function rules()
     {
         return [
+            //l'emplacement nom doit être une string non vide de 255 caractère maximum 
             'nom' => ['required', 'string', 'max:255'],
+            //l'emplacement email doit être une adresse mail valide non vide de 255 caractère maximum 
             'email' => ['required', 'string', 'email', 'max:255'],
+            //l'emplacement message doit être une string non vide de 2048 caractère maximum 
             'message' => ['required', 'string', 'max:2048'],
         ];
     }
