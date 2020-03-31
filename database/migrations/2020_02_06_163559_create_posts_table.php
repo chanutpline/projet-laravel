@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('post_content');
             $table->string('post_title');
             $table->string('post_status');
-            $table->string('post_name');
+            $table->string('post_name')->unique();//un nom de post doit être unique
             $table->string('post_type');
             $table->string('post_category');
             //clé étrangère vers la table users
