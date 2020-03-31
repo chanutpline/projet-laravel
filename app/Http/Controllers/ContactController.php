@@ -10,7 +10,14 @@ use Illuminate\Support\Carbon;
 class ContactController extends Controller
 {
     public function show() {
-        return view('contact');
+        /*
+        récupères tous les messages de la table contact
+        le stock dans $contact
+        envoie à la vue contact dans un tableau, récupèrable avec la clé contact
+        retourne la vue contact
+        */
+        $contact  = \App\Contact::all();
+        return view('contact',array('contact'=>$contact));
     }
     /*
     récupère les données envoyées par le formulaire ($request)

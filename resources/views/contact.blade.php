@@ -68,6 +68,16 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
         </tr>
     </table>
 </form>
-
+{{-- 
+Récupère les données envoyées par le controlleur
+Parcours le tableau contenant les messages
+Les affiches
+--}}
+@foreach ($contact as $message)
+    <div>
+    Le {{$message->contact_date }} message de {{ $message->contact_name }} :
+        {{ $message->contact_message}}
+    </div>
+@endforeach
 
 @endsection
