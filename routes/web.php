@@ -23,11 +23,12 @@ Route::prefix('/contact')->group(function() {
 
 Route::get('/articles','HomeController@articles');
 
-Route::get('/articles/{post_name}','PostController@show');
+Route::get('/articles/{post_name}','PostController@show')->name('un-article');
+Route::post('/articles','CommentsController@create')->name('un-article-post');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
+//Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
 
 // This way adds all routes automatically, without having to add one by one.
 //Route::resource('comments', 'CommentsController');
@@ -35,7 +36,3 @@ Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
 ////////////////////////
 
 //Route::get('/posts/{post}/comments', 'CommentController@index');
-
-//Route::middleware('auth:api')->group(function () {
-  //  Route::post('/posts/{post}/comment', 'CommentController@store');
-//});

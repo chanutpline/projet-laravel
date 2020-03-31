@@ -11,11 +11,9 @@ class HomeController extends Controller
         return view('welcome',array('last'=>$last_posts));
 
         // retrieve posts with their comment
-        $posts = Post::with('comments')->get();    
+        $posts = \App\Post::with('comments')->get();    
         return view('home')->with( array('posts'=>$posts ) );
     }
-
-   
 
 
     function articles(){

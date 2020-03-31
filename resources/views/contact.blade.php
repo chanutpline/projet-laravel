@@ -46,13 +46,6 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
                 @endif
             </td>
         </tr>
-
-    
-
-
-    
-
-
         <tr>
             <td>
                 <input type="submit" value="Envoyer">

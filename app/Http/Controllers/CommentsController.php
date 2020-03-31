@@ -7,13 +7,10 @@ use App\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
+use Illuminate\Support\Carbon;
 
 class CommentsController extends Controller
 {
-
-    public function __construct() {
-        $this->middleware('auth');
-    }
 
     /**
      * Display a listing of the resource.
@@ -30,79 +27,14 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(PostContactRequest $request) {
-         $body =$request['message'];
-        
-        $date = Carbon::now(); 
+    public function create(CommentRequest $request) {
+        $body =$request['message'];
         $comment = new Comment(); 
-        $comment->body = $message; 
-        
-        $comment->save(); 
-     
-
-    }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-         $post = Post::findOrFail($request->post_id);
- 
-        Comment::create([
-            'body' => $request->body,
-            'user_id' => Auth::id(),
-            'post_id' => $post->id
-        ]);
-        return redirect()->route('posts.show', $post->id);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-
-        $comments = Post::find(1)->comments;
-        return view('comments', compact('comments'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Comment $comment)
-    {
-        //
-    }
+        $comment->body = $body; 
+        $comment->user_id = 1;//valeur arbitraire tant que pas d'utilisateur
+        $comment->post_id = 1;
+        $comment->save();
+        return view('confirm');
+  
+}
 }

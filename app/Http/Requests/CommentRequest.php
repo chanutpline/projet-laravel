@@ -13,7 +13,7 @@ class CommentRequest extends FormRequest
      */
     public function authorize()
     {
-        return \Auth::check();
+        return true;
     }
 
     /**
@@ -23,8 +23,7 @@ class CommentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'body' => 'required|max:1000',
-        ];
+        return 
+        [ 'message' => 'required','max:1000'];
     }
 }
