@@ -47,6 +47,8 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
             </td>
         </tr>
 
+    
+
 
     
 
@@ -58,6 +60,7 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
         </tr>
     </table>
 </form>
+
 
 
 @endsection

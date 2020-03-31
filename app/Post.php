@@ -12,13 +12,14 @@ class Post extends Model
     }
 
 
+    // posts belongs to one user
     public function user(){
         return $this->belongsTo('App\User');
       }
-    
-    
        public function comments(){
         return $this->hasMany('App\Comment');
        } 
 
+       protected $primaryKey = 'id';
+    
 }

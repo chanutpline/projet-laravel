@@ -27,4 +27,15 @@ Route::get('/articles/{post_name}','PostController@show');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
 
+// This way adds all routes automatically, without having to add one by one.
+//Route::resource('comments', 'CommentsController');
+
+////////////////////////
+
+//Route::get('/posts/{post}/comments', 'CommentController@index');
+
+//Route::middleware('auth:api')->group(function () {
+  //  Route::post('/posts/{post}/comment', 'CommentController@store');
+//});

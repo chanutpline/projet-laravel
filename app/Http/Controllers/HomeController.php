@@ -10,7 +10,7 @@ class HomeController extends Controller
         $last_posts = \App\Post::orderBy('post_date','desc')->take(3)->get();
         return view('welcome',array('last'=>$last_posts));
 
-       // retrieve posts with their comment
+        // retrieve posts with their comment
         $posts = Post::with('comments')->get();    
         return view('home')->with( array('posts'=>$posts ) );
     }
