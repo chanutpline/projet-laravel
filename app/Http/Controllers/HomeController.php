@@ -30,6 +30,6 @@ class HomeController extends Controller
     }
 
     function nouvelArticle(){
-        return view('nouvelArticle');
+        return view('posts/nouvelArticle');
     }
 }

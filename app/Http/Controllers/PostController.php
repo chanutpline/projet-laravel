@@ -6,6 +6,7 @@ use App\Post;
 use App\User;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\PostRedigerArticleRequest;
+use App\Http\Requests\PostModifierArticleRequest;
 use App\Http\Requests\DeleteUpdateRequest;
 
 
@@ -21,8 +22,8 @@ envoie à la vue single $post et $authors dans un tableau, récupèrables avec l
 retourne la vue single
 */
 public function show($post_name) {
-    $post = \App\Post::where('post_name',$post_name)->first();
-    $author = \App\User::where('id',$post->user_id)->first();
+    $post = Post::where('post_name',$post_name)->first();
+    $author = User::where('id',$post->user_id)->first();
     return view('posts/single',array('post'=>$post,'user'=>$author));
 }
 
@@ -51,9 +52,16 @@ public function create(PostRedigerArticleRequest $request) {
     return redirect('/');
 }
 
-public function update(){
+public function modifier(DeleteUpdateRequest $request){
+    $post = Post::where('id',$request['id'])->first();
+    return view('posts/modifierArticle',array('post'=>$post));
+}
 
-    return view('nouvelArticle');
+public function update(PostModifierArticleRequest $request){
+    $article = Post::where('id',$request['id'])->first();
+    $updates = array($request->post_title,);
+    $article->update($request->all());
+    return redirect('/');
 }
 
 public function delete(DeleteUpdateRequest $request){
