@@ -52,22 +52,53 @@ public function create(PostRedigerArticleRequest $request) {
     return redirect('/');
 }
 
+ /*
+    récupère les données envoyées par le formulaire ($request)
+    test la validité de ces données à l'aide de DeleteUpdateRequest
+    si les données sont valides :
+    récupère le post associé à l'id de $request dans $post
+    retourne la vue modifierArticle et l'article récupéré
+    sinon reste sur la même page
+    */
 public function modifier(DeleteUpdateRequest $request){
     $post = Post::where('id',$request['id'])->first();
     return view('posts/modifierArticle',array('post'=>$post));
 }
 
+/*
+crée une variable $post nulle 
+retourne la vue modifierArticle et $post 
+*/
+public function modifier2(){
+    $post = null;
+    return view('posts/modifierArticle',array('post'=>$post));
+}
+
+ /*
+    récupère les données envoyées par le formulaire ($request)
+    test la validité de ces données à l'aide de PostModifierArticleRequest
+    si les données sont valides :
+    récupère le post associé à l'id de $request dans $article
+    met à jour le post $article avec les données contenues dans $request
+    redirige sur la page accueil 
+    sinon reste sur la même page mais rempli $error avec les messages d'erreur générés
+    */
 public function update(PostModifierArticleRequest $request){
     $article = Post::where('id',$request['id'])->first();
-    $updates = array($request->post_title,);
     $article->update($request->all());
     return redirect('/');
 }
 
+/*
+    récupère les données envoyées par le formulaire ($request)
+    test la validité de ces données à l'aide de DeleteUpdateRequest
+    si les données sont valides :
+    supprime le post associé à l'id de $request dans $article
+    redirige sur la page accueil 
+    sinon reste sur la même page
+    */
 public function delete(DeleteUpdateRequest $request){
-    if($request['id'] != null){
     Post::where('id',$request['id'])->first()->delete();
-    }
     return redirect('/');
 }
 

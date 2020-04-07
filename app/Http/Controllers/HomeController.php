@@ -29,6 +29,9 @@ class HomeController extends Controller
 
     }
 
+    /*
+    retourne la vue nouvelArticle
+    */
     function nouvelArticle(){
         return view('posts/nouvelArticle');
     }

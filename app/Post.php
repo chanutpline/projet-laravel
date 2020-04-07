@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
 
+    //attributs pouvant être modifiés
     protected $fillable = [
         'post_name', 'post_content', 'post_title', 'post_status', 'post_category'
     ];

@@ -17,7 +17,10 @@ Route::post('/delete','PostController@delete')->name('delete');
 
 Route::prefix('/update')->group(function (){
     Route::post('/','PostController@modifier')->name('update');
+    Route::get('/','PostController@modifier2');
     Route::post('/1','PostController@update')->name('update1');
+   
+
 });
 /**
  * Contact Form Routes

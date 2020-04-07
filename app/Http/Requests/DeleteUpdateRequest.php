@@ -14,7 +14,7 @@ class DeleteUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //l'emplacement nom doit être une string non vide de 255 caractère maximum 
+            //l'emplacement nom doit être une string non vide présent dans la colonne id de la table posts 
             'id'=> ['string', 'required', 'exists:posts,id']
         ];
     }
