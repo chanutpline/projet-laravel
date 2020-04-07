@@ -28,4 +28,8 @@ class HomeController extends Controller
         return view('articles',array('articles'=>$posts));
 
     }
+
+    function nouvelArticle(){
+        return view('nouvelArticle');
+    }
 }

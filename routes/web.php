@@ -27,4 +27,7 @@ Route::get('/articles','HomeController@articles');
 
 Route::get('/articles/{post_name}','PostController@show');
 
-
+Route::prefix('/rediger')->group(function(){
+    Route::get('/','HomeController@nouvelArticle');
+    Route::post('/','PostCrudController@create')->name('postRediger');
+});
