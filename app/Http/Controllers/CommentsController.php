@@ -27,14 +27,15 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(CommentRequest $request) {
-        $body =$request['message'];
-        $comment = new Comment(); 
-        $comment->body = $body; 
+    public function create(CommentRequest $request)
+    {
+        $body = $request['message'];
+        $comment = new Comment();
+        $comment->body = $body;
         $comment->user_id = 1;//valeur arbitraire tant que pas d'utilisateur
         $comment->post_id = 1;
         $comment->save();
         return view('confirm');
-  
-}
+
+    }
 }

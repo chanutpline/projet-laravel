@@ -13,21 +13,38 @@
 
 Route::get('/','HomeController@index');
 
+Route::post('/delete','PostController@delete')->name('delete');
+
+Route::prefix('/update')->group(function (){
+    Route::post('/','PostController@modifier')->name('update');
+    Route::get('/','PostController@modifier2');
+    Route::post('/1','PostController@update')->name('update1');
+
+
+});
 /**
  * Contact Form Routes
  */
 Route::prefix('/contact')->group(function() {
+    //appelle la méthode show() quand l'accès à l'url /contacts se fait avec la méthode get
     Route::get('/','ContactController@show');
+    //appelle la méthode create() quand l'accèse à l'url /contacts se fait avec la méthode post
     Route::post('/','ContactController@create')->name('post-contact');
 });
 
-Route::get('/articles','HomeController@articles');
+Route::prefix('/articles')->group(function() {
+    Route::get('/','HomeController@articles');
+    Route::get('/{post_name}','PostController@show');
+});
 
-Route::get('/articles/{post_name}','PostController@show')->name('un-article');
-Route::post('/articles','CommentsController@create')->name('un-article-post');
+Route::prefix('/comments')->group(function() {
+    Route::post('','CommentsController@create')->name('un-article-post');
+});
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::prefix('/rediger')->group(function(){
+    Route::get('/','HomeController@nouvelArticle');
+    Route::post('/','PostController@create')->name('postRediger');
+});
 //Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
 
 // This way adds all routes automatically, without having to add one by one.

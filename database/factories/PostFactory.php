@@ -14,14 +14,16 @@ use Faker\Generator as Faker;
 |
 */
 
+
 $factory->define(App\Post::class, function (Faker $faker) {
-    $users = App\User::pluck('id')->toArray();
+    $users = App\User::pluck('id')->toArray();//récupère dans un tableau tous les id de la table user
+    //rempli les données avec les contraintes de la classe Post (modèle), ici toutefois les contraintes sont indiquées directement
     return [
-        'user_id' => $faker->randomElement($users),
+        'user_id' => $faker->randomElement($users),//prend un élément aléatoirement dans $user
         'post_date' => now(),
         'post_content' => $faker->paragraph(),
         'post_title' => $faker->sentence(),
-        'post_name' => $faker->word(),
+        'post_name' => $faker->unique()->word(),
         'post_type' => 'article',
         'post_status' => $faker->paragraph(),
         'post_category'=>$faker->paragraph()

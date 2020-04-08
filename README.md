@@ -1,84 +1,83 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Installation du projet
+=========================
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+Cloner le projet : git clone https://github.com/chanutpline/Projet-laravel.git
+Se placer dans le répertoire du projet
+Télécharger les dépendances de laravel : composer install
+Créer un fichier database.sqlite dans le répertoire database du projet
+Modifier le fichier .env : 
+    Copie de .env.example dans .env : cp .env.example .env
+    Création d'une clé : php artisan key:generate
+    Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin daccès à la ligne DB_DATABASE=laravel
+Création de la database et remplissage avec des données : php artisan migrate --seed
+Lancer le serveur : php artisan serve
+Cliquer le lien pour accéder au blog
 
-## About Laravel
+## Fonctionnalités du TP2
+=========================
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Page d'Accueil
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+_Page accessible avec l'url '/' ou en cliquant sur le lien 'Home' en haut à gauche des pages
+_Il y a dessus trois liens cliquables vers les trois articles les plus récents présents dans la base de données
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Test :
+_Cliquer les trois liens pour s'assurer qu'ils sont bien cliquables
+_Éventuellement se rendre dans la base de données pour s'assurer à l'aide de la colonne qui s'agit bien des plus récents
 
-## Learning Laravel
+## Page Articles
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+_Page accessible avec l'url '/articles' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
+_Il y a dessus des liens cliquables vers tous les articles présents dans la base de données
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Test :
+_Cliquer des liens pour s'assurer qu'ils sont bien cliquables
 
-## Laravel Sponsors
+## Page Contact
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+_Page accessible avec l'url '/contact' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
+_Il y a un formulaire permettant de renseigner son nom, son adresse mail et un message
+_Quand le formulaire est validé si tous les champs sont remplis et si l'adresse mail a un format valide les informations sont enregistrées dans la base de données
+_La vue de la page est alors modifiée, le formulaire disparaît et un message de confirmation apparaît
+_En cas de validation du formulaire avec des données invalides le formulaire ré-apparaît avec les données envoyées et un message d'erreur en-dessous des champs posant problème
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+Test :
+_Remplir le formulaire avec des données invalides ou en laissant des champs vides
+_Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
 
-## Contributing
+## Fonctionnalités supplémentaires
+==================================
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 2- CRUD des articles
 
-## Code of Conduct
+Create :
+_Formulaire de rédaction d'un nouvel article avec l'url '/rediger' ou en cliquant sur le lien 'Nouvel Article' en haut à gauche des pages
+_Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+_Redirection vers la page d'accueil
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Test :
+_Remplir le formulaire avec des données invalides ou en laissant des champs vides
+_Remplir le formulaire avec des données valides et vérifier que l'article créé est bien le premier affiché sur la page d'accueil
 
-## Security Vulnerabilities
+Read :
+_Voir Page Article
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Update :
+_Cliquer le lien d'un article
+_Formulaire de modification accessible via le bouton modifier de la page de l'article
+_Le formulaire pré-rempli avec les données de l'article peut être modifié et envoyé
+_Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+_redirection vers la page d'accueil
 
-## License
+Test :
+_Remplir le formulaire avec des données invalides ou en laissant des champs vides
+_Remplir le formulaire avec des données valides et vérifier que l'article a bien été modifié, soit en cliquant de nouveau sur l'article soit dans la base de données
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-Test ajout
+Delete :
+_Cliquer le lien d'un article
+_Suppression via le bouton supprimer de la page de l'article
+_Redirection vers la page d'accueil
 
-=======
-test test
-FINAL TEST
->>>>>>> bd8ce23539d5d7112c37dd50bd35a494925589ea
+Test :
+_Cliquer sur le bouton supprimer d'un article
+_Vérifier que l'article n'apparaît plus dans la page Articles

@@ -13,22 +13,23 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
+        //crée la table posts
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');//clé primaire de la table
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
             $table->date('post_date');
             $table->string('post_content');
             $table->string('post_title');
             $table->string('post_status');
-            $table->string('post_name');
+            $table->string('post_name')->unique();//un nom de post doit être unique
             $table->string('post_type');
             $table->string('post_category');
-
+            //clé étrangère vers la table users
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
-                    ->onDelete('cascade');
+                    ->onDelete('cascade');//délétion en cascade en cas de suppression d'un utilisateur
         });
     }
 

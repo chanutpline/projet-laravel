@@ -11,10 +11,14 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        // factory(\App\User::class, 50)->create();  
+        /*
+        crée 20 utilisateurs à partir de la classe User et les entre dans la base de données
+        pour chacun d'entre eux :
+        crée des post à partir de la classe Post et les entre dans la base de données
+        lie ces post avec les utilisateurs avec la fonction posts() de la classe User
+        */ 
         factory(App\User::class, 20)->create()->each(function ($user) {
             $user->posts()->save(factory(App\Post::class)->create());
-            // factory(App\Post::class, 5)->create(['user_id' => $user->id]);
         });
     }
 }
