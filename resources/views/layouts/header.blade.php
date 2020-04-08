@@ -9,16 +9,7 @@
 </head>
 <body>
 
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="menu">
-            <li class="menu-text">Blog</li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/articles">Articles</a></li>
-            
-        </ul>
-    </div>
+
 
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
@@ -39,7 +30,7 @@
                         <a href="{{ route('login') }}">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}">    Register</a>
                         @endif
                     @endauth
                 </ul>
