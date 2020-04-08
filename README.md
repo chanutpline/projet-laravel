@@ -48,5 +48,36 @@ _Remplir le formulaire avec des données valides et aller vérifier leur afficha
 ## Fonctionnalités supplémentaires
 ==================================
 
+## 2- CRUD des articles
 
+Create :
+_Formulaire de rédaction d'un nouvel article avec l'url '/rediger' ou en cliquant sur le lien 'Nouvel Article' en haut à gauche des pages
+_Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+_Redirection vers la page d'accueil
 
+Test :
+_Remplir le formulaire avec des données invalides ou en laissant des champs vides
+_Remplir le formulaire avec des données valides et vérifier que l'article créé est bien le premier affiché sur la page d'accueil
+
+Read :
+_Voir Page Article
+
+Update :
+_Cliquer le lien d'un article
+_Formulaire de modification accessible via le bouton modifier de la page de l'article
+_Le formulaire pré-rempli avec les données de l'article peut être modifié et envoyé
+_Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+_redirection vers la page d'accueil
+
+Test :
+_Remplir le formulaire avec des données invalides ou en laissant des champs vides
+_Remplir le formulaire avec des données valides et vérifier que l'article a bien été modifié, soit en cliquant de nouveau sur l'article soit dans la base de données
+
+Delete :
+_Cliquer le lien d'un article
+_Suppression via le bouton supprimer de la page de l'article
+_Redirection vers la page d'accueil
+
+Test :
+_Cliquer sur le bouton supprimer d'un article
+_Vérifier que l'article n'apparaît plus dans la page Articles

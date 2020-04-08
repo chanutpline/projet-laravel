@@ -13,6 +13,15 @@
 
 Route::get('/','HomeController@index');
 
+Route::post('/delete','PostController@delete')->name('delete');
+
+Route::prefix('/update')->group(function (){
+    Route::post('/','PostController@modifier')->name('update');
+    Route::get('/','PostController@modifier2');
+    Route::post('/1','PostController@update')->name('update1');
+   
+
+});
 /**
  * Contact Form Routes
  */
@@ -23,8 +32,12 @@ Route::prefix('/contact')->group(function() {
     Route::post('/','ContactController@create')->name('post-contact');
 });
 
-Route::get('/articles','HomeController@articles');
+Route::prefix('/articles')->group(function() {
+    Route::get('/','HomeController@articles');
+    Route::get('/{post_name}','PostController@show');
+});
 
-Route::get('/articles/{post_name}','PostController@show');
-
-
+Route::prefix('/rediger')->group(function(){
+    Route::get('/','HomeController@nouvelArticle');
+    Route::post('/','PostController@create')->name('postRediger');
+});
