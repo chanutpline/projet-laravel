@@ -19,7 +19,7 @@ Route::prefix('/update')->group(function (){
     Route::post('/','PostController@modifier')->name('update');
     Route::get('/','PostController@modifier2');
     Route::post('/1','PostController@update')->name('update1');
-   
+
 
 });
 /**
@@ -37,7 +37,19 @@ Route::prefix('/articles')->group(function() {
     Route::get('/{post_name}','PostController@show');
 });
 
+Route::prefix('/comments')->group(function() {
+    Route::post('','CommentsController@create')->name('un-article-post');
+});
+
 Route::prefix('/rediger')->group(function(){
     Route::get('/','HomeController@nouvelArticle');
     Route::post('/','PostController@create')->name('postRediger');
 });
+//Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
+
+// This way adds all routes automatically, without having to add one by one.
+//Route::resource('comments', 'CommentsController');
+
+////////////////////////
+
+//Route::get('/posts/{post}/comments', 'CommentController@index');

@@ -33,11 +33,13 @@ class ContactController extends Controller
         $email = $request['email']; 
         $name = $request['nom']; 
         $msg =$request['message'];
+        
         $date = Carbon::now(); 
         $contact = new Contact(); 
         $contact->contact_name = $name; 
         $contact->contact_email = $email; 
         $contact->contact_message = $msg;
+       
         $contact->contact_date = $date; 
         $contact->save(); 
         return view('confirm');

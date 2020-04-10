@@ -8,7 +8,8 @@ use Illuminate\Support\Carbon;
 use App\Http\Requests\PostRedigerArticleRequest;
 use App\Http\Requests\PostModifierArticleRequest;
 use App\Http\Requests\DeleteUpdateRequest;
-
+use App\Http\Requests\CommentRequest;
+use App\Comment;
 
 
 class PostController extends Controller
@@ -22,9 +23,10 @@ envoie à la vue single $post et $authors dans un tableau, récupèrables avec l
 retourne la vue single
 */
 public function show($post_name) {
-    $post = Post::where('post_name',$post_name)->first();
-    $author = User::where('id',$post->user_id)->first();
-    return view('posts/single',array('post'=>$post,'user'=>$author));
+    $post = \App\Post::where('post_name',$post_name)->first();
+    $author = \App\User::where('id',$post->user_id)->first(); ;
+    $comment = \App\Comment::where('post_id',$post->id)->get();
+    return view('posts/single',array('post'=>$post,'user'=>$author, 'commentaires'=>$comment));
 }
 
      /*
@@ -66,8 +68,8 @@ public function modifier(DeleteUpdateRequest $request){
 }
 
 /*
-crée une variable $post nulle 
-retourne la vue modifierArticle et $post 
+crée une variable $post nulle
+retourne la vue modifierArticle et $post
 */
 public function modifier2(){
     $post = null;
@@ -80,7 +82,7 @@ public function modifier2(){
     si les données sont valides :
     récupère le post associé à l'id de $request dans $article
     met à jour le post $article avec les données contenues dans $request
-    redirige sur la page accueil 
+    redirige sur la page accueil
     sinon reste sur la même page mais rempli $error avec les messages d'erreur générés
     */
 public function update(PostModifierArticleRequest $request){
@@ -94,7 +96,7 @@ public function update(PostModifierArticleRequest $request){
     test la validité de ces données à l'aide de DeleteUpdateRequest
     si les données sont valides :
     supprime le post associé à l'id de $request dans $article
-    redirige sur la page accueil 
+    redirige sur la page accueil
     sinon reste sur la même page
     */
 public function delete(DeleteUpdateRequest $request){
