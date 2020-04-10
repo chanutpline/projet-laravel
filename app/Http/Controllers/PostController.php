@@ -49,6 +49,9 @@ public function create(PostRedigerArticleRequest $request) {
     $article->post_type = 'article';
     $article->post_category = $request['categorie'];
     $article->save();
+    if($request->hasFile("image")){
+
+    }
     return redirect('/');
 }
 
