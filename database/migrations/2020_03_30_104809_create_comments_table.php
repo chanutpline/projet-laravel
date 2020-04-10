@@ -19,6 +19,8 @@ class CreateCommentsTable extends Migration
             $table->unsignedBigInteger('user_id');// who has done comment
             $table->unsignedBigInteger('post_id'); 
             $table->timestamps();
+            $table->string('name');
+            $table->string('email');
             // on which post comment has been done
             $table->foreign('user_id')
             ->references('id')
