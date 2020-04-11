@@ -5,7 +5,7 @@
 
 Veuillez rédiger votre article ci-dessus et renseigner les champs complémentaires :
 {{-- formulaire utilisant la méthode post et redirigeant vers la route postRediger --}}
-<form action="{{ route('postRediger') }}" method="post">
+<form action="{{ route('postRediger') }}" method="post" enctype="multipart/form-data">
     @csrf
     <table>
         <tr>
@@ -96,19 +96,8 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
         </tr>
         <tr>
             <td>
-                {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
-                <input type="file" name="image" value="{{ old('categorie') }}">
-                {{--
-                en cas d'erreur dans l'entrée des donnes du champ categorie dans $error :
-                le tableau contenant ces erreur est récupéré et chacun des message d'erreur est affiché en rouge
-                --}}
-                @if($errors->has('image'))
-                    @foreach($errors->get('image') as $error)
-                        <span style="color:red">
-                        {{ $error }}
-                    </span>
-                    @endforeach
-                @endif
+                {{-- --}}
+                <input type="file" name="image[]" multiple="multiple">
             </td>
         </tr>
         <tr>
