@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use App\Image;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\PostRedigerArticleRequest;
 use App\Http\Requests\PostModifierArticleRequest;
 use App\Http\Requests\DeleteUpdateRequest;
-
 
 
 class PostController extends Controller
@@ -50,17 +50,15 @@ public function create(PostRedigerArticleRequest $request) {
     $article->post_type = 'article';
     $article->post_category = $request['categorie'];
     $article->save();
-    if($request->hasFile("image[]")){
-        //@foreach ($request->image as $picture)
-            $picture = $request['image[]'];
+    if($request["image"] != null){
+        foreach ($request['image'] as $image){
+            $picture = $image;
+            $path = $picture->store('images');
             $images = new Image();
             $images->post = $article->id;
-            $extension = $picture->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
-            $images->name = $picture->$filename;
+            $images->image = $path;
             $images->save();
-      //@endforeach
-
+        }
     }
     return redirect('/');
 }

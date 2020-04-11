@@ -98,6 +98,7 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
             <td>
                 {{-- --}}
                 <input type="file" name="image[]" multiple="multiple">
+
             </td>
         </tr>
         <tr>
@@ -107,5 +108,4 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
         </tr>
     </table>
 </form>
-
 @endsection

@@ -39,5 +39,14 @@ Route::prefix('/articles')->group(function() {
 
 Route::prefix('/rediger')->group(function(){
     Route::get('/','HomeController@nouvelArticle');
-    Route::post('/','PostController@create')->name('postRediger');
+    Route::post('/', 'PostController@create')->name('postRediger');
 });
+
+    
+/*
+Route::post('/', function(){
+        dump($_REQUEST);
+        })->name('postRediger');
+});
+  
+*/
