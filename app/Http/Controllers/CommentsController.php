@@ -33,8 +33,7 @@ class CommentsController extends Controller
         $body = $request['message'];
         $comment = new Comment();
         $comment->body = $body;
-        $users = User::pluck('id')->toArray();//récupère dans un tableau tous les id de la table user
-        $comment->user_id = array_rand($users,1);// Selectione un utitlisateur aleatoire dans ce tableau
+        $comment->user_id =  auth()->user()->id;
         $comment->post_id = $request['post_id'];
         $user = User::where('id',$comment->user_id)->first();// récupère l'utilisateur qu'était enregistré dans $somments->user_id
         // enregistre le nom et le mail de $user
