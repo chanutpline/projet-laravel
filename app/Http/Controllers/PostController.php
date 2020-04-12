@@ -41,8 +41,7 @@ public function show($post_name) {
     */
 public function create(PostRedigerArticleRequest $request) {
     $article = new Post();
-    $users = User::pluck('id')->toArray();//récupère dans un tableau tous les id de la table user
-    $article->user_id = array_rand($users,1);//sélectionne un utlisateur aléatoirement pour remplir l'auteur de l'article
+    $article->user_id =  auth()->user()->id; 
     $article->post_date = Carbon::now();
     $article->post_content = $request['article'];
     $article->post_title = $request['titre'];

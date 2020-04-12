@@ -31,6 +31,8 @@
 <div>
 <br />
 <br />
+
+@if( auth()->check() )
     <!-- Comment form -->
     <form action="{{ route('un-article-post') }}" method="post">
         @csrf <!-- Required for security reasons -->
@@ -48,6 +50,7 @@
         <input type="submit" value="Envoyer">
     </form>
 </div>
+@endif
 
 <div>
 <br />
