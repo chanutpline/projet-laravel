@@ -45,11 +45,11 @@ Route::prefix('/rediger')->group(function(){
     Route::get('/','HomeController@nouvelArticle');
     Route::post('/','PostController@create')->name('postRediger');
 });
-//Route::get('/post/{id}', 'PostsController@show')->name('posts.show');
 
-// This way adds all routes automatically, without having to add one by one.
-//Route::resource('comments', 'CommentsController');
 
-////////////////////////
-
-//Route::get('/posts/{post}/comments', 'CommentController@index');
+Route::get('/register', 'RegistrationController@create');
+Route::post('/register', 'RegistrationController@store');
+ 
+Route::get('/login', 'SessionsController@create');
+Route::post('/login', 'SessionsController@store');
+Route::get('/logout', 'SessionsController@destroy');
