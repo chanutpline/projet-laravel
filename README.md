@@ -3,9 +3,6 @@ Bonjour,
 
 Voici notre projet compte rendu Laravel.
 
-Vous pouvez trouver notre code source sur Github:
-https://github.com/chanutpline/Projet-laravel
-
 #### Group
 Pauline CHANUT
 Fatima NASSER
@@ -29,8 +26,8 @@ Fatima NASSER
 7) Lancer le serveur : php artisan serve
 8) Cliquer le lien pour accéder au blog
 
-#### Tâche réalisé
-## Fonctionnalités du TP2
+## Tâche réalisé
+#### Fonctionnalités du TP2
 =========================
 
 * [x] **Page d'Accueil**
@@ -62,7 +59,7 @@ Test :
 *Remplir le formulaire avec des données invalides ou en laissant des champs vides
 *Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
 
-## Fonctionnalités supplémentaires
+#### Fonctionnalités supplémentaires
 ==================================
 * [x] **1- Gestion des commentaires**
 
@@ -110,5 +107,5 @@ Test :
 
 
 =========================
-#### Tâche non réalisé
+## Tâche non réalisé
 * [ ]
