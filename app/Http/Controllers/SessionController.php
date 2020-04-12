@@ -9,7 +9,7 @@ use App\User;
 store() to log an existing user in, 
 and destroy() to log a user out of the application */
 
-class SessionsController extends Controller
+class SessionController extends Controller
 {
     public function create()
     {

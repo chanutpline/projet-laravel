@@ -52,10 +52,10 @@ Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
  
 // Display a form for an existing user to log in to the site and establish a new session.
-Route::get('/login', 'SessionsController@create');
+Route::get('/login', 'SessionController@create');
 
 // Accepts request data from log in (or session) form submission, authorizes credentials, logs user into the site.
-Route::post('/login', 'SessionsController@store');
+Route::post('/login', 'SessionController@store');
 
 // Destroys an existing session and logs the user out of the site.
-Route::get('/logout', 'SessionsController@destroy');
+Route::get('/logout', 'SessionController@destroy');
