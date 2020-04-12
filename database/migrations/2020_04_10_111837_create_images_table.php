@@ -15,9 +15,14 @@ class CreateImagesTable extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('post');//article lié à l'image
+            $table->string('post');//id de l'article lié à l'image
             $table->string('image');//nom de l'image
             $table->timestamps();
+            //clé étrangère vers la table users
+            $table->foreign('post')
+                    ->references('id')
+                    ->on('posts')
+                    ->onDelete('cascade');//délétion en cascade en cas de suppression d'un article
         });
     }
 

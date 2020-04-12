@@ -28,6 +28,9 @@
 </table>
 <div>{{$post->post_content}}</div>
 
+@foreach ($images as $item)
+<img src="{{ asset("storage/"."$item->image") }}" alt="{{ asset("$item->image") }}"><br/>  
+@endforeach
 
 
 @endsection

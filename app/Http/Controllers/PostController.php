@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\User;
 use App\Image;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Carbon;
 use App\Http\Requests\PostRedigerArticleRequest;
 use App\Http\Requests\PostModifierArticleRequest;
@@ -25,7 +24,8 @@ retourne la vue single
 public function show($post_name) {
     $post = Post::where('post_name',$post_name)->first();
     $author = User::where('id',$post->user_id)->first();
-    return view('posts/single',array('post'=>$post,'user'=>$author));
+    $image = Image::where('post',$post->id)->get();
+    return view('posts/single',array('post'=>$post,'user'=>$author,'images'=>$image));
 }
 
      /*
@@ -53,7 +53,7 @@ public function create(PostRedigerArticleRequest $request) {
     if($request["image"] != null){
         foreach ($request['image'] as $image){
             $picture = $image;
-            $path = $picture->store('images');
+            $path = substr($picture->store('public'),7);
             $images = new Image();
             $images->post = $article->id;
             $images->image = $path;
