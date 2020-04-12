@@ -21,12 +21,12 @@ class SessionsController extends Controller
         }
         
         return redirect()->to('/');
+        
     }
     
     public function destroy()
     {
         auth()->logout();
-        //return view('confirmRegistration');
-        return redirect()->to('/');
+        return view('confirmLogOut');
     }
 }
