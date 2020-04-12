@@ -37,16 +37,11 @@ Route::prefix('/articles')->group(function() {
     Route::get('/{post_name}','PostController@show');
 });
 
+Route::prefix('/comments')->group(function() {
+    Route::post('','CommentsController@create')->name('un-article-post');
+});
+
 Route::prefix('/rediger')->group(function(){
     Route::get('/','HomeController@nouvelArticle');
     Route::post('/', 'PostController@create')->name('postRediger');
 });
-
-    
-/*
-Route::post('/', function(){
-        dump($_REQUEST);
-        })->name('postRediger');
-});
-  
-*/

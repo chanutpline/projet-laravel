@@ -47,6 +47,15 @@ _Remplir le formulaire avec des données valides et aller vérifier leur afficha
 
 ## Fonctionnalités supplémentaires
 ==================================
+## 1- Gestion des commentaires
+
+_Formulaire de rédaction d'un commentaire accessible en cliquant sur un article en bas du texte de l'article
+_Quand le formulaire est validé et que le champ est rempli la page de confirmation s'affiche
+_Commentaires déjà rédigés tous lisibles en dessous du formulaire
+
+Test:
+_Essayer de valider le formulaire sans rien avoir écrit pour afficher un message d'erreur
+_Valider le formulaire aprés l'avoir rempli, puis retourner à la page de l'article, le commentaire devrait apparaître
 
 ## 2- CRUD des articles
 
@@ -81,3 +90,4 @@ _Redirection vers la page d'accueil
 Test :
 _Cliquer sur le bouton supprimer d'un article
 _Vérifier que l'article n'apparaît plus dans la page Articles
+

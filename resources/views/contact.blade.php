@@ -68,7 +68,7 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
         </tr>
     </table>
 </form>
-{{-- 
+{{--
 Récupère les données envoyées par le controlleur
 Parcours le tableau contenant les messages
 Les affiches
