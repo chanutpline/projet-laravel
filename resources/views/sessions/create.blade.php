@@ -2,6 +2,7 @@
  
 @section('content')
  
+<!-- Create a Log In Form for the SessionsController@create() method -->
     <h2>Log In</h2>
     
     <form method="POST" action="/login">

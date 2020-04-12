@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
  
+/* Those will be create() to offer a login form, 
+store() to log an existing user in, 
+and destroy() to log a user out of the application */
+
 class SessionsController extends Controller
 {
     public function create()

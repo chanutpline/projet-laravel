@@ -18,14 +18,14 @@
           </ul>
         </div>
 
-
+<!-- Update Navigation to include Log In, Register, and Log Out links  -->
         <div class="flex-center position-ref full-height">
           <div class="top-bar-right">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="/articles">Feel free to go over our articles list</a>
-                        </li> -->
+                        <!-- we use auth()->check() to see if the user is logged in.
+                        If this is true, then the <li> tag is rendered and the user name is populated via auth()->user()->name. 
+                        If this is false, the <li> is not rendered at all -->
                         @if( auth()->check() )
                             <li class="nav-item">
                                 <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>

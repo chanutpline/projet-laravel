@@ -46,10 +46,16 @@ Route::prefix('/rediger')->group(function(){
     Route::post('/','PostController@create')->name('postRediger');
 });
 
-
+// Display a form to a visitor so they can register for a new account with the site.
 Route::get('/register', 'RegistrationController@create');
+// Accepts request data from the registration form submission, validates data, stores new user in the database.
 Route::post('/register', 'RegistrationController@store');
  
+// Display a form for an existing user to log in to the site and establish a new session.
 Route::get('/login', 'SessionsController@create');
+
+// Accepts request data from log in (or session) form submission, authorizes credentials, logs user into the site.
 Route::post('/login', 'SessionsController@store');
+
+// Destroys an existing session and logs the user out of the site.
 Route::get('/logout', 'SessionsController@destroy');
