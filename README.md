@@ -32,78 +32,78 @@ Fatima NASSER
 
 * [x] **Page d'Accueil**
 
-*Page accessible avec l'url '/' ou en cliquant sur le lien 'Home' en haut à gauche des pages
-*Il y a dessus trois liens cliquables vers les trois articles les plus récents présents dans la base de données
+* Page accessible avec l'url '/' ou en cliquant sur le lien 'Home' en haut à gauche des pages
+* Il y a dessus trois liens cliquables vers les trois articles les plus récents présents dans la base de données
 
 Test :
-*Cliquer les trois liens pour s'assurer qu'ils sont bien cliquables
-*Éventuellement se rendre dans la base de données pour s'assurer à l'aide de la colonne qui s'agit bien des plus récents
+* Cliquer les trois liens pour s'assurer qu'ils sont bien cliquables
+* Éventuellement se rendre dans la base de données pour s'assurer à l'aide de la colonne qui s'agit bien des plus récents
 
 * [x] **Page Articles**
 
-*Page accessible avec l'url '/articles' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
-*Il y a dessus des liens cliquables vers tous les articles présents dans la base de données
+* Page accessible avec l'url '/articles' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
+* Il y a dessus des liens cliquables vers tous les articles présents dans la base de données
 
 Test :
-*Cliquer des liens pour s'assurer qu'ils sont bien cliquables
+* Cliquer des liens pour s'assurer qu'ils sont bien cliquables
 
 * [x] **Page Contact**
 
-*Page accessible avec l'url '/contact' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
-*Il y a un formulaire permettant de renseigner son nom, son adresse mail et un message
-*Quand le formulaire est validé si tous les champs sont remplis et si l'adresse mail a un format valide les informations sont enregistrées dans la base de données
-*La vue de la page est alors modifiée, le formulaire disparaît et un message de confirmation apparaît
-*En cas de validation du formulaire avec des données invalides le formulaire ré-apparaît avec les données envoyées et un message d'erreur en-dessous des champs posant problème
+* Page accessible avec l'url '/contact' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
+* Il y a un formulaire permettant de renseigner son nom, son adresse mail et un message
+* Quand le formulaire est validé si tous les champs sont remplis et si l'adresse mail a un format valide les informations sont enregistrées dans la base de données
+* La vue de la page est alors modifiée, le formulaire disparaît et un message de confirmation apparaît
+* En cas de validation du formulaire avec des données invalides le formulaire ré-apparaît avec les données envoyées et un message d'erreur en-dessous des champs posant problème
 
 Test :
-*Remplir le formulaire avec des données invalides ou en laissant des champs vides
-*Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
+* Remplir le formulaire avec des données invalides ou en laissant des champs vides
+* Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
 
 #### Fonctionnalités supplémentaires
 ==================================
 * [x] **1- Gestion des commentaires**
 
-*Formulaire de rédaction d'un commentaire accessible en cliquant sur un article en bas du texte de l'article
-*Quand le formulaire est validé et que le champ est rempli la page de confirmation s'affiche
-*Commentaires déjà rédigés tous lisibles en dessous du formulaire
+* Formulaire de rédaction d'un commentaire accessible en cliquant sur un article en bas du texte de l'article
+* Quand le formulaire est validé et que le champ est rempli la page de confirmation s'affiche
+* Commentaires déjà rédigés tous lisibles en dessous du formulaire
 
 Test:
-*Essayer de valider le formulaire sans rien avoir écrit pour afficher un message d'erreur
-*Valider le formulaire aprés l'avoir rempli, puis retourner à la page de l'article, le commentaire devrait apparaître
+* Essayer de valider le formulaire sans rien avoir écrit pour afficher un message d'erreur
+* Valider le formulaire aprés l'avoir rempli, puis retourner à la page de l'article, le commentaire devrait apparaître
 
 * [x] **2- CRUD des articles**
 
 Create :
-*Formulaire de rédaction d'un nouvel article avec l'url '/rediger' ou en cliquant sur le lien 'Nouvel Article' en haut à gauche des pages
-*Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
-*Redirection vers la page d'accueil
+* Formulaire de rédaction d'un nouvel article avec l'url '/rediger' ou en cliquant sur le lien 'Nouvel Article' en haut à gauche des pages
+* Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+* Redirection vers la page d'accueil
 
 Test :
-*Remplir le formulaire avec des données invalides ou en laissant des champs vides
-*Remplir le formulaire avec des données valides et vérifier que l'article créé est bien le premier affiché sur la page d'accueil
+* Remplir le formulaire avec des données invalides ou en laissant des champs vides
+* Remplir le formulaire avec des données valides et vérifier que l'article créé est bien le premier affiché sur la page d'accueil
 
 Read :
-*Voir Page Article
+* Voir Page Article
 
 Update :
-*Cliquer le lien d'un article
-*Formulaire de modification accessible via le bouton modifier de la page de l'article
-*Le formulaire pré-rempli avec les données de l'article peut être modifié et envoyé
-*Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
-*redirection vers la page d'accueil
+* Cliquer le lien d'un article
+* Formulaire de modification accessible via le bouton modifier de la page de l'article
+* Le formulaire pré-rempli avec les données de l'article peut être modifié et envoyé
+* Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
+* redirection vers la page d'accueil
 
 Test :
-*Remplir le formulaire avec des données invalides ou en laissant des champs vides
-*Remplir le formulaire avec des données valides et vérifier que l'article a bien été modifié, soit en cliquant de nouveau sur l'article soit dans la base de données
+* Remplir le formulaire avec des données invalides ou en laissant des champs vides
+* Remplir le formulaire avec des données valides et vérifier que l'article a bien été modifié, soit en cliquant de nouveau sur l'article soit dans la base de données
 
 Delete :
-*Cliquer le lien d'un article
-*Suppression via le bouton supprimer de la page de l'article
-*Redirection vers la page d'accueil
+* Cliquer le lien d'un article
+* Suppression via le bouton supprimer de la page de l'article
+* Redirection vers la page d'accueil
 
 Test :
-*Cliquer sur le bouton supprimer d'un article
-*Vérifier que l'article n'apparaît plus dans la page Articles
+* Cliquer sur le bouton supprimer d'un article
+* Vérifier que l'article n'apparaît plus dans la page Articles
 
 
 =========================
