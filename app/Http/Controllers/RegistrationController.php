@@ -26,6 +26,6 @@ class RegistrationController extends Controller
         
         auth()->login($user);
         return view('confirmRegistration');
-        //return redirect()->to('/games');
+        
     }
 }                   
