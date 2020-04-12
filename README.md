@@ -26,7 +26,7 @@ Fatima NASSER
 7) Lancer le serveur : php artisan serve
 8) Cliquer le lien pour accéder au blog
 
-## Tâche réalisé
+## Tâches réalisées
 #### Fonctionnalités du TP2
 =========================
 
@@ -107,5 +107,5 @@ Test :
 
 
 =========================
-## Tâche non réalisé
+## Tâches non réalisées
 * [ ]
