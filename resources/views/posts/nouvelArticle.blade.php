@@ -46,7 +46,7 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
         <tr>
             <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
-                <textarea id="msg" name="article" placeholder="Votre article">{{ old('message') }}</textarea>
+                <textarea id="msg" name="article" placeholder="Votre article">{{ old('article') }}</textarea>
                 {{--
                 en cas d'erreur dans l'entrée des donnes du champ article dans $error :
                 le tableau contenant ces erreur est récupéré et chacun des message d'erreur est affiché en rouge
