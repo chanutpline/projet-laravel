@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -37,16 +38,23 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    //indique d'un utilisateur peut être lié à plusieurs posts
+    /**
+     * User has many posts
+     *
+     * @return HasMany
+     */
     public function posts() {
         return $this->hasMany(Post::class);
     }
 
-    // user can have many comments as well
-
-    public function comments(){
-    return $this->hasMany('App\Comment');
-}
+    /**
+     * User can have many comments
+     *
+     * @return HasMany
+     */
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
 
 
 }
