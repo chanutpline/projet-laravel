@@ -31,11 +31,49 @@
             </div>
         </div>
         <div>{{$post->post_content}}</div>
-        @foreach ($images as $item)
-            <img src="{{ asset("storage/"."$item->image") }}" alt="{{ asset("$item->image") }}"><br/>
-        @endforeach
+        <br/>
+
+        <!-- Carrousel des images -->
+        <div class="orbit" role="region" aria-label="Pictures of the article" data-orbit style="width:900px">
+            <div class="orbit-wrapper">
+                <div class="orbit-controls">
+                    <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                    <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                </div>
+                <ul class="orbit-container">
+                    @for($x = 0;$x<sizeof($images);$x = $x+1)
+                        @if($x == 0)
+                            <li class="is-active orbit-slide">
+                                <figure class="orbit-figure">
+                                    <img class="orbit-image" src="{{ asset("storage/".$images[$x]['image']) }}" alt="{{ $images[$x]['image'] }}" style="width:900px; height: auto;">
+                                    <figcaption class="orbit-caption">Image {{ $x + 1 }}.</figcaption>
+                                </figure>
+                            </li>
+                        @else
+                        <li class="orbit-slide">
+                            <figure class="orbit-figure">
+                                <img class="orbit-image" src="{{ asset("storage/".$images[$x]['image']) }}" alt="{{ $images[$x]['image'] }}" style="width:900px; height: auto;">
+                                <figcaption class="orbit-caption">Image {{ $x + 1 }}.</figcaption>
+                            </figure>
+                        </li>
+                        @endif
+                    @endfor
+                </ul>
+            </div>
+            <nav class="orbit-bullets">
+                @for($x = 0;$x<sizeof($images);$x = $x+1)
+                    @if($x == 0)
+                        <button class="is-active" data-slide={{ $x }}>
+                            <span class="show-for-sr">First slide details.</span>
+                            <span class="show-for-sr" data-slide-active-label>Current Slide</span>
+                        </button>
+                    @else
+                         <button data-slide={{ $x }}><span class="show-for-sr">Slide details.</span></button>
+                    @endif
+                @endfor
+            </nav>
+        </div>
         <div>
-            <br />
             <br />
             <!-- Comment form -->
             <form action="{{ route('un-article-post') }}" method="post">
@@ -56,7 +94,6 @@
         </div>
 
         <div>
-            <br />
             <br />
             <h4 style = "color:blue">Commentaires: </h4>
             {{-- Cette partie ne s'affiche que si il y a des commentaires --}}

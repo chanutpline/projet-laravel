@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projet PHP</title>
 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 </head>
 <body>
 <div class="top-bar">
@@ -26,6 +27,10 @@
 </div>
 </div>
 
+<div class="row medium-8 large-7 columns">
+
+
+</div>
 @yield('content')
 </div>
 <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
