@@ -32,7 +32,7 @@
         </div>
  
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Login</button>
+            <button style="cursor:pointer" type="submit" class="success button">Login</button>
         </div>
         
     </form>
