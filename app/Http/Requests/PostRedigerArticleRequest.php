@@ -24,7 +24,7 @@ class PostRedigerArticleRequest extends FormRequest
             'status' => ['required', 'string', 'max:255'],
             //l'emplacement categorie doit être une string non vide de 255 caractères maximum 
             'categorie' => ['required', 'string', 'max:255'],
-            'image' => []
+            'image[]' => ['image', 'size:512']
         ];
     }
 }
