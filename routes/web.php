@@ -62,5 +62,5 @@ Route::get('/logout', 'SessionController@destroy');
 
 
 Route::get('/register/{provider}', 'RegistrationController@redirectToProvider');
-Route::get('/register/{provider}/callback', 'RegistrationController@handleProviderCallback');
+Route::get('/register/google/callback', 'RegistrationController@handleProviderCallbackGoogle');
 

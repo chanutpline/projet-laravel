@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use Socialite;
-use Auth;
-use App\user;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
- 
+
 /* Set up the RegistrationController@store() method to handle registration form submission 
 - Validate the form submission
 - Create and save a user to the database
@@ -50,14 +50,15 @@ class RegistrationController extends Controller
     /**
      * Obtain the user information from GitHub.
      *
-     * @return Response
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallbackGoogle()
     {
-        $user = Socialite::driver($provider)->stateless()->user();
+        $user = Socialite::driver('google')->user();
+        $provider = 'google';
         $authUser =$this->findOrCreateUser($user,$provider);
         Auth::login($authUser, true);
-        return redirect($this->redirectTo);
+        return redirect('/');
     }
 
     public function findOrCreateUser($user, $provider){
