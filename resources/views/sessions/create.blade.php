@@ -32,9 +32,8 @@
         </div>
  
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Login</button>
+            <input type="submit" value="Login">
         </div>
-        
     </form>
 </div>
 @endsection

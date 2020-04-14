@@ -55,9 +55,9 @@
             @endif
         </div>
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
+            <input type="submit" value='Submit'>
         </div>
-      
     </form>
+    <br/>
 </div>
 @endsection
