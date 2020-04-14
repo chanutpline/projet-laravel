@@ -61,6 +61,15 @@ class RegistrationController extends Controller
         return redirect('/');
     }
 
+    public function handleProviderCallbackGithub()
+    {
+        $user = Socialite::driver('github')->user();
+        $provider = 'github';
+        $authUser =$this->findOrCreateUser($user,$provider);
+        Auth::login($authUser, true);
+        return redirect('/');
+    }
+
     public function findOrCreateUser($user, $provider){
         $authUser = User::where('provider_id', $user->id)->first();
         if($authUser){
