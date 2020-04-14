@@ -36,6 +36,7 @@ class PostController extends Controller
    crée un nouvel objet de la classe Post (modèle)
    rempli l'objet avec $request
    entre dans la base de donnée cet objet
+    s'occupe du traitetement des images
    redirige sur la page accueil (l'article rédigé apparait en premier)
    sinon reste sur la même page mais rempli $error avec les messages d'erreur générés
    */
@@ -50,7 +51,11 @@ class PostController extends Controller
         $article->post_type = 'article';
         $article->post_category = $request['categorie'];
         $article->save();
-
+        /*
+         * si des images ont été ajoutées pour chacune d'entre elles :
+         * stocke l'image dans le répertoire de public_path (public/storage/images et stocke son nom dans $path (image/nom)
+         * crée une image selpon le modèle Image, la rempli et la stocke dans la base de données
+         */
         if($request->hasFile('image')) {
             foreach ($request->file('image') as $file) {
                 $path = $file->store('images', 'public_path');

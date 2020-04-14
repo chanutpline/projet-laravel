@@ -38,12 +38,16 @@
         <!-- Carrousel des images -->
         <div class="orbit" role="region" aria-label="Pictures of the article" data-orbit style="width:900px">
             <div class="orbit-wrapper">
+                <!-- boutons pour parcourir les images-->
                 <div class="orbit-controls">
                     <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
                     <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
                 </div>
                 <ul class="orbit-container">
+                    <!-- parcours toutes les images pour les afficher
+                    utilise une boucle for pour compter les images et afficher leur numéro) -->
                     @for($x = 0;$x<sizeof($images);$x = $x+1)
+                        <!-- si l'image est la première elle apparait en premier dans le slider -->
                         @if($x == 0)
                             <li class="is-active orbit-slide">
                                 <figure class="orbit-figure">
@@ -63,7 +67,10 @@
                 </ul>
             </div>
             <nav class="orbit-bullets">
+                <!-- parcours les images pour créer les ronds en base du slider pour atteindre une image directement
+                utilise une boucle for pour compter les images et afficher le numéro de la slide dans la balise button -->
                 @for($x = 0;$x<sizeof($images);$x = $x+1)
+                    <!-- si c'est la première image elle est active en premier -->
                     @if($x == 0)
                         <button class="is-active" data-slide={{ $x }}>
                             <span class="show-for-sr">First slide details.</span>
@@ -77,13 +84,16 @@
         </div>
         <div>
             <br />
+            <!-- le formulaire de commentaire n'apparait que si l'utilisateur est identifié -->
             @if(auth()->check())
             <!-- Comment form -->
             <form action="{{ route('un-article-post') }}" method="post">
             @csrf <!-- Required for security reasons -->
                 <h4 style = "color:blue"> Laissez votre commentaire ici: </h4>
+                <!-- en cas d'erreur l'ancien commentaire saisi apparait -->
                 <textarea name="message" rows="5"> {{ old('commentaires') }} </textarea>
                 @if($errors->has('message'))
+                    <!-- affiche en rouge les messages d'erreur en cas d'erreur -->
                     @foreach($errors->get('message') as $error)
                         <span style="color:red">
                         {{ $error }}

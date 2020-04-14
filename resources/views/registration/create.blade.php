@@ -1,9 +1,8 @@
 @extends('layouts/main')
  
 @section('content')
-
 <!-- Create a Registration Form for the RegistrationController@create() method -->
- 
+<div class="row medium-10 large-10">
     <h2>Register</h2>
     <form method="POST" action="/register">
         {{ csrf_field() }}
@@ -30,7 +29,6 @@
             @endforeach
             @endif
         </div>
- 
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" name="password">
@@ -61,5 +59,5 @@
         </div>
       
     </form>
- 
+</div>
 @endsection

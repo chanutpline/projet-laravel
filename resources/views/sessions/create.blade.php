@@ -1,8 +1,8 @@
 @extends('layouts/main')
  
 @section('content')
- 
 <!-- Create a Log In Form for the SessionsController@create() method -->
+<div class="row medium-10 large-10">
     <h2>Log In</h2>
     
     <form method="POST" action="/login">
@@ -36,5 +36,5 @@
         </div>
         
     </form>
- 
+</div>
 @endsection

@@ -1,15 +1,14 @@
 @extends('layouts/main')
 {{-- insère la section content dans le champ constent du layout main --}}
 @section('content')
+    <div class="row medium-10 large-10">
 <h1>Contacts</h1>
 
 Pour nous contacter, veuillez remplir le formulaire ci-dessous :
 {{-- formulaire utilisant la méthode post et redirigeant vers la route appelée post-contact --}}
-<form action="{{ route('post-contact') }}" method="post">
+        <div class="grid-x">
+    <form action="{{ route('post-contact') }}" method="post">
     @csrf
-    <table>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="nom" placeholder="Votre nom" value="{{ old('nom') }}">
                 {{--
@@ -23,11 +22,6 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
                     </span>
                     @endforeach
                 @endif
-
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="email" placeholder="Votre email" value="{{ old('email') }}">
                 {{--
@@ -41,11 +35,6 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
                     </span>
                     @endforeach
                 @endif
-            </td>
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <textarea id="msg" name="message" placeholder="Votre message">{{ old('message') }}</textarea>
                 {{--
@@ -59,25 +48,22 @@ Pour nous contacter, veuillez remplir le formulaire ci-dessous :
                     </span>
                     @endforeach
                 @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <input type="submit" value="Envoyer">
-            </td>
-        </tr>
-    </table>
-</form>
-{{--
-Récupère les données envoyées par le controlleur
-Parcours le tableau contenant les messages
-Les affiches
---}}
-@foreach ($contact as $message)
-    <div>
-    Le {{$message->contact_date }} message de {{ $message->contact_name }} :
-        {{ $message->contact_message}}
-    </div>
-@endforeach
-
+    </form>
+            <br/>
+        </div>
+    {{--
+    Récupère les données envoyées par le controlleur
+    Parcours le tableau contenant les messages
+    Les affiches
+    --}}
+        <div class="grid-x">
+        @foreach ($contact as $message)
+             <div>
+            Le {{$message->contact_date }} message de {{ $message->contact_name }} :
+            {{ $message->contact_message}}
+            </div>
+        @endforeach
+        </div>
+        </div>
 @endsection
