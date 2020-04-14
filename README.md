@@ -110,7 +110,17 @@ Test :
 * Cliquer sur le bouton supprimer d'un article
 * Vérifier que l'article n'apparaît plus dans la page Articles
 
+* [x] **5- Ajout de fichiers médias pour les articles**
 
+* Possibilité d'ajouter une ou plusieurs images dans le formulaire servant créer de nouveaux articles (onglet "Nouvel Article", url '/rediger', disponible quand on est identifié)
+* Les images sont stockées dans le répertoire public/storage/images et leur lien avec leur article est stocké dans la table 'images' de la base de données
+* Quand on article avec des images est ouvert les images apparaissent dans un slider
+* Quand un article avec des images est supprimé les lignes le référençant dans la table 'images' sont supprimées et les images disparaissent du répertoire
+
+Test :
+* Créer un nouvel article dans l'onglet "Nouvel Article" puis le consulter (premier article qui apparaît sur la page d'accueil)
+* Vérifier que les images sont bien placées dans le répertoire et que la table 'image' est bien mise à jour
+* Supprimer l'article et vérifier que les images ont disparu du répertoire et que la tables 'images' ne contient plus de référence à ces images
 =========================
 ## Tâches non réalisées
 * [ ]
