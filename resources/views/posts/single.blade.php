@@ -5,6 +5,7 @@
     <div class="row medium-10 large-10">
 
         <div class="grid-x">
+            @if(auth()->check())
             <div class="cell small-4">
                 <form action="{{ route('delete') }}" method="post" style="display: inline-block">
                     @csrf
@@ -19,6 +20,7 @@
                     <input type="submit" value="Modifier" class="button">
                 </form>
             </div>
+            @endif
             <div class="cell small-8">
                 <h2>{{$post->post_title}}</h2>
             </div>
@@ -75,6 +77,7 @@
         </div>
         <div>
             <br />
+            @if(auth()->check())
             <!-- Comment form -->
             <form action="{{ route('un-article-post') }}" method="post">
             @csrf <!-- Required for security reasons -->
@@ -91,6 +94,7 @@
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <input type="submit" value="Envoyer">
             </form>
+                @endif
         </div>
 
         <div>

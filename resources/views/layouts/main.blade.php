@@ -8,17 +8,47 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 </head>
 <body>
-<div class="top-bar">
-<div class="top-bar-left">
-<ul class="menu">
-<li class="menu-text">Blog</li>
-<li><a href="/">Home</a></li>
-<li><a href="/contact">Contact</a></li>
-<li><a href="/articles">Articles</a></li>
-<li><a href="/rediger">Nouvel Article</a></li>
-</ul>
-</div>
-</div>
+    <div class="top-bar">
+        <div class="top-bar-left">
+          <ul class="menu">
+            <li class="menu-text">Blog</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/articles">Articles</a></li>
+            @if( auth()->check() )
+            <li><a href="/rediger">Nouvel Article</a></li>
+            @endif
+          </ul>
+        </div>
+
+<!-- Update Navigation to include Log In, Register, and Log Out links  -->
+        <div class="flex-center position-ref full-height">
+          <div class="top-bar-right">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <!-- we use auth()->check() to see if the user is logged in.
+                        If this is true, then the <li> tag is rendered and the user name is populated via auth()->user()->name. 
+                        If this is false, the <li> is not rendered at all -->
+                        @if( auth()->check() )
+                            <li class="nav-item">
+                                <a class="nav-link font-weight-bold" href="#">Hi {{ auth()->user()->name }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/logout">Log Out</a>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="/login">Log In</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/register">Register</a>
+                            </li>
+                        @endif
+                    </ul>
+              </div>
+            </div>
+          </div>
+    </div>
 
 <div class="callout large primary">
 <div class="row column text-center">
