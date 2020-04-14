@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\User;
+use Socialite;
+use Auth;
+use App\user;
+
  
 /* Set up the RegistrationController@store() method to handle registration form submission 
 - Validate the form submission
@@ -33,4 +36,41 @@ class RegistrationController extends Controller
         return view('confirmRegistration');
         
     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+       return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        $user = Socialite::driver($provider)->stateless()->user();
+        $authUser =$this->findOrCreateUser($user,$provider);
+        Auth::login($authUser, true);
+        return redirect($this->redirectTo);
+    }
+
+    public function findOrCreateUser($user, $provider){
+        $authUser = User::where('provider_id', $user->id)->first();
+        if($authUser){
+            return $authUser;
+        }
+        return User::create([
+            'name' => $user->name,
+            'email' => $user->email,
+            'provider' => strtoupper($provider),
+            'provider_id' => $user->id
+        ]);
+    }
+
 }                   

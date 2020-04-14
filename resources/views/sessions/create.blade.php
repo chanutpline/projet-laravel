@@ -33,6 +33,8 @@
  
         <div class="form-group">
             <button style="cursor:pointer" type="submit" class="btn btn-primary">Login</button>
+            <a href="{{url('register/'.$provider='google')}}" class="btn btn-primary">Login with Google</a>
+            <a href="{{url('register/'.$provider='github')}}" class="btn btn-primary">Login with Github</a>
         </div>
         
     </form>

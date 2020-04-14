@@ -59,3 +59,8 @@ Route::post('/login', 'SessionController@store');
 
 // Destroys an existing session and logs the user out of the site.
 Route::get('/logout', 'SessionController@destroy');
+
+
+Route::get('/register/{provider}', 'RegistrationController@redirectToProvider');
+Route::get('/register/{provider}/callback', 'RegistrationController@handleProviderCallback');
+

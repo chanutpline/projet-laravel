@@ -57,7 +57,9 @@
             @endif
         </div>
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Submit</button>
+            <button style="cursor:pointer" type="submit" class="btn btn-primary">Register</button>
+            <a href="{{url('register/'.$provider='google')}}" class="btn btn-primary">Register with Google</a>
+            <a href="{{url('register/'.$provider='github')}}" class="btn btn-primary">Register with Github</a>
         </div>
       
     </form>
