@@ -17,15 +17,19 @@ Fatima NASSER
 1) Cloner le projet : git clone https://github.com/chanutpline/Projet-laravel.git
 2) Se placer dans le répertoire du projet
 3) Télécharger les dépendances de laravel : composer install
-4) Créer un fichier database.sqlite dans le répertoire database du projet
-5) Modifier le fichier .env : 
+4) Télécharger Socialite: composer require laravel/socialite
+5) Créer un fichier database.sqlite dans le répertoire database du projet
+6) Modifier le fichier .env : 
     * Copie de .env.example dans .env : cp .env.example .env
     * Création d'une clé : php artisan key:generate
     * Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin daccès à la ligne DB_DATABASE=laravel
-6) Création de la database et remplissage avec des données : php artisan migrate --seed
-7) Lier les répertoires des images : php artisan storage:link
-8) Lancer le serveur : php artisan serve
-9) Cliquer le lien pour accéder au blog
+    * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
+    * Les adresses utilisées pour le callback sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
+    * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
+7) Création de la database et remplissage avec des données : php artisan migrate --seed
+8) Lier les répertoires des images : php artisan storage:link
+9) Lancer le serveur : php artisan serve
+10) Cliquer le lien pour accéder au blog
 
 ## Tâches réalisées
 #### Fonctionnalités du TP2

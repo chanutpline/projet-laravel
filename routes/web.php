@@ -65,3 +65,7 @@ Route::get('/register/{provider}', 'RegistrationController@redirectToProvider');
 Route::get('/register/google/callback', 'RegistrationController@handleProviderCallbackGoogle');
 Route::get('/register/github/callback', 'RegistrationController@handleProviderCallbackGithub');
 
+Route::get('/phpinfo', function() {
+    return phpinfo();
+});
+

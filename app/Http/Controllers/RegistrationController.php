@@ -70,17 +70,35 @@ class RegistrationController extends Controller
         return redirect('/');
     }
 
-    public function findOrCreateUser($user, $provider){
+    public function findOrCreateUser($user, $provider) {
         $authUser = User::where('provider_id', $user->id)->first();
+        $checkUser = User::where('email', $user->email)->first();
+
+        if ($checkUser) {
+          return $checkUser;
+        } 
+
         if($authUser){
             return $authUser;
         }
-        return User::create([
-            'name' => $user->name,
-            'email' => $user->email,
-            'provider' => strtoupper($provider),
-            'provider_id' => $user->id
-        ]);
+
+        if($user->name !== null){
+            return User::create([
+                'name' => $user->name,
+                'email' => $user->email,
+                'provider' => strtoupper($provider),
+                'provider_id' => $user->id
+            ]);
+            } else {
+                return User::create([
+                    'name' => $user->nickname,
+                    'email' => $user->email,
+                    'provider' => strtoupper($provider),
+                    'provider_id' => $user->id
+                ]);
+            }
+
+        
     }
 
 }                   
