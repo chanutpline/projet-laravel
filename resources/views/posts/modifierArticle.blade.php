@@ -51,8 +51,7 @@ Veuillez modifer votre article :
         </tr>
     </table>
 </form>
-{{-- si la vue est chargée de nouveau car une erreur de saisie a eu lieu --}}
-@else
+@else {{-- si $post = null car la vue est chargée de nouveau car une erreur de saisie a eu lieu --}}
 {{-- formulaire utilisant la méthode post et redirigeant vers la route update1 --}}
 <form action="{{ route('update1') }}" method="post">
     @csrf

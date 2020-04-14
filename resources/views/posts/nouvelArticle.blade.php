@@ -5,7 +5,7 @@
 
 Veuillez rédiger votre article ci-dessus et renseigner les champs complémentaires :
 {{-- formulaire utilisant la méthode post et redirigeant vers la route postRediger --}}
-<form action="{{ route('postRediger') }}" method="post">
+<form action="{{ route('postRediger') }}" method="post" enctype="multipart/form-data">
     @csrf
     <table>
         <tr>
@@ -96,10 +96,16 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
         </tr>
         <tr>
             <td>
+                {{-- --}}
+                <input type="file" name="image[]" multiple="multiple" accept='image/*'>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <input type="submit" value="Soumettre">
             </td>
         </tr>
     </table>
 </form>
-
 @endsection

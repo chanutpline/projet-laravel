@@ -114,6 +114,18 @@ Test :
 * Cliquer sur le bouton supprimer d'un article
 * Vérifier que l'article n'apparaît plus dans la page Articles
 
+* [x] **5- Ajout de fichiers médias pour les articles**
+
+* Possibilité d'ajouter une ou plusieurs images dans le formulaire servant créer de nouveaux articles (onglet "Nouvel Article", url '/rediger', disponible quand on est identifié)
+* Les images sont stockées dans le répertoire public/storage/images et leur lien avec leur article est stocké dans la table 'images' de la base de données
+* Quand on article avec des images est ouvert les images apparaissent dans un slider
+* Quand un article avec des images est supprimé les lignes le référençant dans la table 'images' sont supprimées et les images disparaissent du répertoire
+
+Test :
+* Créer un nouvel article dans l'onglet "Nouvel Article" puis le consulter (premier article qui apparaît sur la page d'accueil)
+* Vérifier que les images sont bien placées dans le répertoire et que la table 'image' est bien mise à jour
+* Supprimer l'article et vérifier que les images ont disparu du répertoire et que la tables 'images' ne contient plus de référence à ces images
+
 * [x] **6- Identification avec Google et Github en utilisant Socialite**
 
 * Page accessible avec l'url '/login' ou en cliquant sur le boutun 'login' en haut à droit des pages
@@ -122,6 +134,7 @@ Test :
     * Lorsque vous cliquez sur le bouton Login with Google, une page s'affichera vous demandant de vous connecter avec votre compte google
 * Lorsque vous choisissez un compte Google ou Github pour vous inscrire, les informations sont enregistrées dans la base de données
 * La vue de la page est alors modifiée, le formulaire disparaît et vous serez redirigé vers la page d'acueil de notre site
+
 
 Fonctionnement: 
 * Cette fonctionnalité commence par rediriger l'utilisateur vers la page d'authentification Github / Google.
