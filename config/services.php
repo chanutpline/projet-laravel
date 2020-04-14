@@ -30,6 +30,8 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    // getting the ID, SECRET and URL defined in the .env file for both google and github
+
     'google' => [
         'client_id' => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),

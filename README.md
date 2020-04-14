@@ -114,7 +114,25 @@ Test :
 * Cliquer sur le bouton supprimer d'un article
 * Vérifier que l'article n'apparaît plus dans la page Articles
 
+* [x] **6- Identification avec Google et Github en utilisant Socialite**
 
-=========================
-## Tâches non réalisées
-* [ ]
+* Page accessible avec l'url '/login' ou en cliquant sur le boutun 'login' en haut à droit des pages
+* Il y a deux boutons, Login with Google, et Login with Github
+* Il ne faut pas remplir le formulaire sur la page, mais seulement choisir de se connecter avec google ou github en cliquant sur le bouton correspondant
+    * Lorsque vous cliquez sur le bouton Login with Google, une page s'affichera vous demandant de vous connecter avec votre compte google
+* Lorsque vous choisissez un compte Google ou Github pour vous inscrire, les informations sont enregistrées dans la base de données
+* La vue de la page est alors modifiée, le formulaire disparaît et vous serez redirigé vers la page d'acueil de notre site
+
+Fonctionnement: 
+* Cette fonctionnalité commence par rediriger l'utilisateur vers la page d'authentification Github / Google.
+* Il obtient ensuite les informations utilisateur de la page Github / Google.
+* Ensuite, il gère l'utilisateur lorsqu'il reçoit le rappel de Github / Google.
+* Il vérifie si un utilisateur déjà existant possède cette adresse e-mail, si c'est le cas, il le connecte sans ajouter l'utilisateur à la base de données.
+* Il vérifie également s'il existe un utilisateur déjà authentifié qui a le provider_id fourni par Github / Google, si c'est le cas, il le connecte sans ajouter l'utilisateur à la base de données.
+* Il vérifie si l'utilisateur a un nom défini sur son compte (pas toujours le cas avec github) puis il renvoie ce nom, sinon il renverra le pseudo de son profil github.
+
+Test:
+* Essayez de se connecter deux fois avec l'un de deux moyen pour vérifier que la connection se fait toujours avec le même nom d'utilisateur.
+* Si votre adresses email est la même pour google et github: 
+    * Connectez vous avec le seconde moyen fourni pour vérifier que ce ne provoque pas d'erreur dans la base de données et que vous n'êtes pas ajouté en tant que nouvel utilisateur.
+
