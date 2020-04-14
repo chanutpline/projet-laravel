@@ -59,3 +59,14 @@ Route::post('/login', 'SessionController@store');
 
 // Destroys an existing session and logs the user out of the site.
 Route::get('/logout', 'SessionController@destroy');
+
+
+// the $provider is whether google or github depends on the button where the user is gonna click
+Route::get('/register/{provider}', 'RegistrationController@redirectToProvider');
+Route::get('/register/google/callback', 'RegistrationController@handleProviderCallbackGoogle');
+Route::get('/register/github/callback', 'RegistrationController@handleProviderCallbackGithub');
+
+Route::get('/phpinfo', function() {
+    return phpinfo();
+});
+
