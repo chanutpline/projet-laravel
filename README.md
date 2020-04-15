@@ -17,15 +17,19 @@ Fatima NASSER
 1) Cloner le projet : git clone https://github.com/chanutpline/Projet-laravel.git
 2) Se placer dans le répertoire du projet
 3) Télécharger les dépendances de laravel : composer install
-4) Créer un fichier database.sqlite dans le répertoire database du projet
-5) Modifier le fichier .env : 
+4) Télécharger Socialite: composer require laravel/socialite
+5) Créer un fichier database.sqlite dans le répertoire database du projet
+6) Modifier le fichier .env : 
     * Copie de .env.example dans .env : cp .env.example .env
     * Création d'une clé : php artisan key:generate
     * Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin daccès à la ligne DB_DATABASE=laravel
-6) Création de la database et remplissage avec des données : php artisan migrate --seed
-7) Lier les répertoires des images : php artisan storage:link
-8) Lancer le serveur : php artisan serve
-9) Cliquer le lien pour accéder au blog
+    * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
+    * Les adresses utilisées pour le callback sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
+    * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
+7) Création de la database et remplissage avec des données : php artisan migrate --seed
+8) Lier les répertoires des images : php artisan storage:link
+9) Lancer le serveur : php artisan serve
+10) Cliquer le lien pour accéder au blog
 
 ## Tâches réalisées
 #### Fonctionnalités du TP2
@@ -145,6 +149,27 @@ Test :
 * Créer un nouvel article dans l'onglet "Nouvel Article" puis le consulter (premier article qui apparaît sur la page d'accueil)
 * Vérifier que les images sont bien placées dans le répertoire et que la table 'image' est bien mise à jour
 * Supprimer l'article et vérifier que les images ont disparu du répertoire et que la tables 'images' ne contient plus de référence à ces images
-=========================
-## Tâches non réalisées
-* [ ]
+
+* [x] **6- Identification avec Google et Github en utilisant Socialite**
+
+* Page accessible avec l'url '/login' ou en cliquant sur le boutun 'login' en haut à droit des pages
+* Il y a deux boutons, Login with Google, et Login with Github
+* Il ne faut pas remplir le formulaire sur la page, mais seulement choisir de se connecter avec google ou github en cliquant sur le bouton correspondant
+    * Lorsque vous cliquez sur le bouton Login with Google, une page s'affichera vous demandant de vous connecter avec votre compte google
+* Lorsque vous choisissez un compte Google ou Github pour vous inscrire, les informations sont enregistrées dans la base de données
+* La vue de la page est alors modifiée, le formulaire disparaît et vous serez redirigé vers la page d'acueil de notre site
+
+
+Fonctionnement: 
+* Cette fonctionnalité commence par rediriger l'utilisateur vers la page d'authentification Github / Google.
+* Il obtient ensuite les informations utilisateur de la page Github / Google.
+* Ensuite, il gère l'utilisateur lorsqu'il reçoit le rappel de Github / Google.
+* Il vérifie si un utilisateur déjà existant possède cette adresse e-mail, si c'est le cas, il le connecte sans ajouter l'utilisateur à la base de données.
+* Il vérifie également s'il existe un utilisateur déjà authentifié qui a le provider_id fourni par Github / Google, si c'est le cas, il le connecte sans ajouter l'utilisateur à la base de données.
+* Il vérifie si l'utilisateur a un nom défini sur son compte (pas toujours le cas avec github) puis il renvoie ce nom, sinon il renverra le pseudo de son profil github.
+
+Test:
+* Essayez de se connecter deux fois avec l'un de deux moyen pour vérifier que la connection se fait toujours avec le même nom d'utilisateur.
+* Si votre adresses email est la même pour google et github: 
+    * Connectez vous avec le seconde moyen fourni pour vérifier que ce ne provoque pas d'erreur dans la base de données et que vous n'êtes pas ajouté en tant que nouvel utilisateur.
+
