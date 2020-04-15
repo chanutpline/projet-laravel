@@ -4,6 +4,17 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Projet PHP</title>
+    <style>
+        .boutonGoogleGithub {
+            padding:6px 0 6px 0;
+            font:bold 13px Arial;
+            background:#478bf9;
+            color:#fff;
+            border-radius:2px;
+            width:100px;
+            border:none;
+        }
+    </style>
 <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 </head>

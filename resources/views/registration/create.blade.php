@@ -56,8 +56,8 @@
         </div>
         <div class="form-group">
             <input type="submit" value='Submit'>
-            <a href="{{url('register/'.$provider='google')}}" class="btn btn-primary">Register with Google</a>
-            <a href="{{url('register/'.$provider='github')}}" class="btn btn-primary">Register with Github</a>
+            <a href="{{url('register/'.$provider='google')}}" class="boutonGoogleGithub">Register with Google</a>
+            <a href="{{url('register/'.$provider='github')}}" class="boutonGoogleGithub">Register with Github</a>
         </div>
     </form>
     <br/>
