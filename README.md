@@ -14,7 +14,7 @@ Fatima NASSER
 ## Installation du projet
 =========================
 
-1) Cloner le projet : git clone https://github.com/chanutpline/Projet-laravel.git
+1) Cloner le projet à l'aide d'un terminal : git clone https://github.com/chanutpline/Projet-laravel.git
 2) Se placer dans le répertoire du projet
 3) Télécharger les dépendances de laravel : composer install
 4) Télécharger Socialite: composer require laravel/socialite
@@ -23,13 +23,15 @@ Fatima NASSER
     * Copie de .env.example dans .env : cp .env.example .env
     * Création d'une clé : php artisan key:generate
     * Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin d'accès à la ligne DB_DATABASE=laravel
-    * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
-    * Les adresses utilisées pour le callback sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
-    * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
 7) Création de la database et remplissage avec des données : php artisan migrate --seed
 8) Lier les répertoires des images : php artisan storage:link
 9) Lancer le serveur : php artisan serve
 10) Cliquer le lien pour accéder au blog
+11) Modifier de nouveau le fichier .env pour permettre la connexion avec Google et Github :
+   * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
+    * Les adresses utilisées pour la redirection sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
+    * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
+12) Relancer la commande php artisan serve pour prendre en compte les modifications du fichier .env
 
 ## Tâches réalisées
 #### Fonctionnalités du TP2
@@ -172,4 +174,5 @@ Test:
 * Essayez de se connecter deux fois avec l'un de deux moyen pour vérifier que la connexion se fait toujours avec le même nom d'utilisateur.
 * Si votre adresses email est la même pour google et github: 
     * Connectez vous avec le seconde moyen fourni pour vérifier que ce ne provoque pas d'erreur dans la base de données et que vous n'êtes pas ajouté en tant que nouvel utilisateur.
+ * Notes : pour tester ces fonctionnalités assurez-vous avant de commencer que l'adresse mail utilisée par Google et Github n'est pas déjà présente dans la base de données suite au test de la fonctionnalité 3
 
