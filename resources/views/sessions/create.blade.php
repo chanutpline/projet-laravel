@@ -1,8 +1,8 @@
 @extends('layouts/main')
  
 @section('content')
- 
 <!-- Create a Log In Form for the SessionsController@create() method -->
+<div class="row medium-10 large-10">
     <h2>Log In</h2>
     
     <form method="POST" action="/login">
@@ -32,11 +32,10 @@
         </div>
  
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Login</button>
+            <input type="submit" value="Login">
             <a href="{{url('register/'.$provider='google')}}" class="btn btn-primary">Login with Google</a>
             <a href="{{url('register/'.$provider='github')}}" class="btn btn-primary">Login with Github</a>
         </div>
-        
     </form>
- 
+</div>
 @endsection

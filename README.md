@@ -56,13 +56,16 @@ Test :
 
 * Page accessible avec l'url '/contact' ou en cliquant sur le lien 'Articles' en haut à gauche des pages
 * Il y a un formulaire permettant de renseigner son nom, son adresse mail et un message
+* Si l'utilisateur est connecté son nom et son adresse mail sont pré-remplis dans le formulaire, sinon il doit les saisir manuellement
 * Quand le formulaire est validé si tous les champs sont remplis et si l'adresse mail a un format valide les informations sont enregistrées dans la base de données
 * La vue de la page est alors modifiée, le formulaire disparaît et un message de confirmation apparaît
 * En cas de validation du formulaire avec des données invalides le formulaire ré-apparaît avec les données envoyées et un message d'erreur en-dessous des champs posant problème
 
 Test :
+* Se rendre sur la page Contact sans être connecté
 * Remplir le formulaire avec des données invalides ou en laissant des champs vides
 * Remplir le formulaire avec des données valides et aller vérifier leur affichage sur la page Contact
+* Se rendre sur la page Contact après s'être connecté pour vérifier que les champs nom et email sont déjà remplis automatiquement
 
 #### Fonctionnalités supplémentaires
 ==================================
@@ -70,7 +73,7 @@ Test :
 
 * Formulaire de rédaction d'un commentaire accessible après s'être identifié en cliquant sur login ou register en haut à droite
 * Une fois connecté la fonctionnalité est disponible en cliquant sur un article, en bas du texte de l'article qui s'affiche
-* Quand le formulaire est validé et que le champ est rempli la page de confirmation s'affiche
+* Quand le formulaire est validé et que le champ est rempli la page de confirmation s'affiche, elle propose un lien permettant de retourner à l'article commenté
 * Commentaires déjà rédigés tous lisibles en dessous du formulaire
 
 Test:
@@ -98,7 +101,7 @@ Update :
 * Formulaire de modification accessible via le bouton modifier de la page de l'article
 * Le formulaire pré-rempli avec les données de l'article peut être modifié et envoyé
 * Quand le formulaire est validé si tous les champs sont remplis et si le nom de l'article est composé uniquement de lettres minuscules et majuscules et n'est pas déjà utilisé les informations sont enregistrées dans la base de données, sinon des messages d'erreurs apparaissent près des champs avec des valeurs invalides
-* redirection vers la page d'accueil
+* Page de confirmation proposant un lien permettant de retourner vers l'article
 
 Test :
 * Remplir le formulaire avec des données invalides ou en laissant des champs vides
@@ -113,6 +116,27 @@ Delete
 Test :
 * Cliquer sur le bouton supprimer d'un article
 * Vérifier que l'article n'apparaît plus dans la page Articles
+
+* [x] **3- Identification/Authentification qui protège l'accès à l'administration**
+
+Créer un compte :
+* Possibilité de créer un compte utilisateur en cliquant sur le bouton 'Register' en haut à droite (url '/register')
+* Formulaire demandant de renseigner un nom, une adresse mail et de saisir un mot de passe et de le confirmer
+* Si tous les champs sont remplis et qu'ils sont corrects (email valide, mot de passe identique dans le champ de confirmation) le compte est créé, l'utilisateur connecté et redirigé vers une page de bienvenue
+* Sinon il reste sur la même page et doit saisir ses informations de manière correcte
+* A la place du bouton login un message de bienvenue avec son nom apparait et un bouton de déconnection apparait en-dessous
+* Le bouton 'Log Out' permet de se déconnecter, dans ce cas l'utilisateur voit apparaître une page de confirmation lui disant au revoir
+
+Se connecter :
+* Si l'utilisateur possède déjà un compte il peut cliquer sur le bouton 'Login' en haut à droite (url '/login')
+* Un formulaire apparaît lui demandant de saisir son adresse mail et son mot de passe
+* Si les champs saisis sont corrects l'utilisateur est connecté et dirigé sur la page d'accueil, comme quand il s'est inscrit la première fois
+* Sinon l'utilisateur reste sur la même page et doit saisir de nouveau ses informations
+
+Test :
+* Créer un compte en cliquant sur le bouton 'Register' pour vérifier que la connection fonctionne
+* Se déconnecter en cliquant sur le bouton 'Log Out'
+* Se connecter de nouveau en cliquant sur le bouton 'Log In'
 
 * [x] **5- Ajout de fichiers médias pour les articles**
 

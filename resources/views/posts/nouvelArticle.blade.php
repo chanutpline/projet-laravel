@@ -1,15 +1,16 @@
 @extends('layouts/main')
 {{-- insère la section content dans le champ constent du layout main --}}
 @section('content')
+
+    <div class="row medium-10 large-10">
 <h1>Nouvel Article</h1>
 
 Veuillez rédiger votre article ci-dessus et renseigner les champs complémentaires :
 {{-- formulaire utilisant la méthode post et redirigeant vers la route postRediger --}}
+        <div class="grid-x">
 <form action="{{ route('postRediger') }}" method="post" enctype="multipart/form-data">
     @csrf
-    <table>
-        <tr>
-            <td>
+
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="nom" placeholder="Le nom de votre article" value="{{ old('nom') }}">
                 {{--
@@ -23,11 +24,6 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
                     </span>
                     @endforeach
                 @endif
-
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="titre" placeholder="Le titre de votre article" value="{{ old('titre') }}">
                 {{--
@@ -41,10 +37,6 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
                     </span>
                     @endforeach
                 @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <textarea id="msg" name="article" placeholder="Votre article">{{ old('article') }}</textarea>
                 {{--
@@ -58,10 +50,6 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
                     </span>
                     @endforeach
                 @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="status" placeholder="Le status de votre article" value="{{ old('status') }}">
                 {{--
@@ -75,10 +63,6 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
                     </span>
                     @endforeach
                 @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
                 {{--en cas d'erreur dans l'envoi du formulaire le champ prend pour valeur celle ayant été envoyée s'il y en avait une --}}
                 <input type="text" name="categorie" placeholder="La catégorie de votre article" value="{{ old('categorie') }}">
                 {{--
@@ -92,20 +76,11 @@ Veuillez rédiger votre article ci-dessus et renseigner les champs complémentai
                     </span>
                     @endforeach
                 @endif
-            </td>
-        </tr>
-        <tr>
-            <td>
-                {{-- --}}
+                {{-- récupère un ou plusieurs fichiers (forcément des images) et les stocke dans un tableau image --}}
                 <input type="file" name="image[]" multiple="multiple" accept='image/*'>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
                 <input type="submit" value="Soumettre">
-            </td>
-        </tr>
-    </table>
+            </div>
 </form>
+    </div>
 @endsection

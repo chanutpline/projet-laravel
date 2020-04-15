@@ -26,7 +26,7 @@ class CommentsController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create(CommentRequest $request)
     {
@@ -40,7 +40,8 @@ class CommentsController extends Controller
         $comment->name = $user->name;
         $comment->email = $user->email;
         $comment->save();
-        return view('confirmComment');
+        $post = Post::where('id',$request['post_id'])->first();
+        return view('confirmComment', ["post" => $post]);
 
     }
 }

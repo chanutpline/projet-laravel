@@ -1,9 +1,8 @@
 @extends('layouts/main')
  
 @section('content')
-
 <!-- Create a Registration Form for the RegistrationController@create() method -->
- 
+<div class="row medium-10 large-10">
     <h2>Register</h2>
     <form method="POST" action="/register">
         {{ csrf_field() }}
@@ -30,7 +29,6 @@
             @endforeach
             @endif
         </div>
- 
         <div class="form-group">
             <label for="password">Password:</label>
             <input type="password" class="form-control" id="password" name="password">
@@ -57,11 +55,11 @@
             @endif
         </div>
         <div class="form-group">
-            <button style="cursor:pointer" type="submit" class="btn btn-primary">Register</button>
+            <input type="submit" value='Submit'>
             <a href="{{url('register/'.$provider='google')}}" class="btn btn-primary">Register with Google</a>
             <a href="{{url('register/'.$provider='github')}}" class="btn btn-primary">Register with Github</a>
         </div>
-      
     </form>
- 
+    <br/>
+</div>
 @endsection
