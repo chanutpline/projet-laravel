@@ -28,7 +28,7 @@ Fatima NASSER
 9) Lancer le serveur : php artisan serve
 10) Cliquer le lien pour accéder au blog
 11) Modifier de nouveau le fichier .env pour permettre la connexion avec Google et Github :
-   * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
+    * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
     * Les adresses utilisées pour la redirection sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
     * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
 12) Relancer la commande php artisan serve pour prendre en compte les modifications du fichier .env
