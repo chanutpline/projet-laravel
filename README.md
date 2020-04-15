@@ -22,7 +22,7 @@ Fatima NASSER
 6) Modifier le fichier .env : 
     * Copie de .env.example dans .env : cp .env.example .env
     * Création d'une clé : php artisan key:generate
-    * Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin daccès à la ligne DB_DATABASE=laravel
+    * Modification du chemin d'accès à la database dans .env : remplacer laravel par le chemin d'accès à la ligne DB_DATABASE=laravel
     * Ajouter les Id client OAuth pour se connecter avec Google et Github (GITHUB_ID= , GITHUB_SECRET=, GOOGLE_ID=, GOOGLE_SECRET=). Pour cela rendez-vous sur les adresses suivantes: https://console.developers.google.com/ , https://github.com/settings/applications.
     * Les adresses utilisées pour le callback sont obtenues en copiant l'adresse de la page d'accueil du site et on y ajoutant /register/google/callback pour se connecter avec google et /register/github/callback pour se connecter avec github.
     * Copier ces adresses aux lignes: GOOGLE_URL et GITHUB_URL.
