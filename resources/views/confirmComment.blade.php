@@ -6,5 +6,6 @@
             <div style='color:green'>
                 <h4> Votre commentaire a bien été enregistré.</h4>
             </div>
+            <button><a href="{{ url('/articles/'.$post->post_name) }}">Retourner à l'article</a></button>
     </div>
 @endsection

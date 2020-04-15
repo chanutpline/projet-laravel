@@ -101,12 +101,12 @@ class PostController extends Controller
      * sinon reste sur la même page mais rempli $error avec les messages d'erreur générés
      *
      * @param PostModifierArticleRequest $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function update(PostModifierArticleRequest $request){
         $article = Post::where('id',$request['id'])->first();
         $article->update($request->all());
-        return redirect('/');
+        return view('confirmUpdate', ['post' => $article]);
     }
 
     /**
@@ -122,7 +122,6 @@ class PostController extends Controller
      */
     public function delete(DeleteUpdateRequest $request) {
         Post::find($request->id)->delete();
-
         return redirect('/');
     }
 
